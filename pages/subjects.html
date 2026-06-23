@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects - Student Study Planner</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/subjects.css">
+</head>
+<body class="light-mode">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo-container">
+                <i class="fa-solid fa-graduation-cap logo-icon"></i>
+                <h1 class="logo-text">StudyTracker</h1>
+            </div>
+            
+            <ul class="nav-links">
+                <li>
+                    <a href="dashboard.html" class="nav-item">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="subjects.html" class="nav-item active">
+                        <i class="fa-solid fa-book"></i>
+                        <span>Subjects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="tasks.html" class="nav-item">
+                        <i class="fa-solid fa-list-check"></i>
+                        <span>Tasks</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="exams.html" class="nav-item">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <span>Exams</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fa-solid fa-moon"></i>
+                    <span>Dark Mode</span>
+                </button>
+            </div>
+            
+            <!-- Mobile Toggle -->
+            <button class="mobile-menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header Section -->
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" id="global-search" placeholder="Search subjects...">
+                </div>
+                
+                <div class="header-right">
+                    <div class="streak-badge" id="streak-badge">
+                        <i class="fa-solid fa-fire streak-icon"></i>
+                        <span id="streak-count">0</span> Day Streak
+                    </div>
+                    <div class="date-display" id="current-date">
+                        Mon, Oct 24, 2023
+                    </div>
+                </div>
+            </header>
+
+            <div class="quote-section">
+                <p id="motivational-quote">"Success is not final, failure is not fatal: it is the courage to continue that counts."</p>
+            </div>
+
+            <!-- Views Container -->
+            <div class="views-container">
+                <!-- Subjects View -->
+                <section id="subjects-view" class="view-section active">
+                    <div class="section-header">
+                        <h2>My Subjects</h2>
+                        <button class="primary-btn" onclick="openModal('subject-modal')">
+                            <i class="fa-solid fa-plus"></i> Add Subject
+                        </button>
+                    </div>
+                    
+                    <div id="subjects-grid" class="subjects-grid">
+                        <!-- Subjects injected here -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="subject-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Subject</h3>
+                <button class="close-modal" onclick="closeModal('subject-modal')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="subject-form">
+                <div class="form-group">
+                    <label for="subject-name">Subject Name</label>
+                    <input type="text" id="subject-name" required placeholder="e.g., Mathematics">
+                </div>
+                <div class="form-group">
+                    <label for="subject-color">Subject Color</label>
+                    <input type="color" id="subject-color" value="#4361ee">
+                </div>
+                <button type="submit" class="submit-btn">Save Subject</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/storage.js"></script>
+    <script src="../js/streak.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/subjects.js"></script>
+</body>
+</html>
